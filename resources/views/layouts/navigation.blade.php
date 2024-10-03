@@ -16,6 +16,11 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+                
+                <!-- Nouveau lien vers Boxes -->
+                <x-nav-link :href="route('boxes.index')" :active="request()->routeIs('boxes.*')">
+                    {{ __('Boxes') }}
+                </x-nav-link>
             </div>
 
             <!-- Settings Dropdown -->
@@ -71,6 +76,11 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
         </div>
+
+         <!-- Nouveau lien vers Boxes -->
+         <x-nav-link :href="route('boxes.index')" :active="request()->routeIs('boxes.*')">
+            {{ __('Boxes') }}
+        </x-nav-link>
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
