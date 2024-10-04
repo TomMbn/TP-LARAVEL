@@ -14,12 +14,40 @@
                     <button class="btn btn-primary" data-toggle="modal" data-target="#addBoxModal">
                         {{ __('Add Box') }}
                     </button>
-                    @if (session('success'))
-                        <div class="alert alert-success mt-3">
-                            {{ session('success') }}
-                        </div>
-                    @endif
 
+                    <!-- Liste des boxes de l'utilisateur connecté -->
+                    <h3 class="mt-6 mb-4">{{ __('Your Boxes') }}</h3>
+
+                    @if ($boxes->isEmpty())
+                        <p>{{ __('You have no boxes yet.') }}</p>
+                    @else
+                        <table class="table-auto w-full">
+                            <thead>
+                                <tr>
+                                    <th class="border px-4 py-2">{{ __('Address') }}</th>
+                                    <th class="border px-4 py-2">{{ __('City') }}</th>
+                                    <th class="border px-4 py-2">{{ __('Tenant') }}</th>
+                                    <th class="border px-4 py-2">{{ __('Actions') }}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($boxes as $box)
+                                    <tr>
+                                        <td class="border px-4 py-2">{{ $box->address }}</td>
+                                        <td class="border px-4 py-2">{{ $box->city }}</td>
+                                        <td class="border px-4 py-2">
+                                            {{ $box->tenant_id ? 'Occupied' : 'Available' }}
+                                        </td>
+                                        <td class="border px-4 py-2">
+                                            <!-- Par exemple, tu peux ajouter des boutons pour "Editer" ou "Supprimer" -->
+                                            <button class="btn btn-secondary">{{ __('Edit') }}</button>
+                                            <button class="btn btn-danger">{{ __('Delete') }}</button>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    @endif
                 </div>
             </div>
         </div>
