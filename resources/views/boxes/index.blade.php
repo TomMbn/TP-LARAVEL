@@ -39,9 +39,7 @@
                                             {{ $box->tenant_id ? 'Occupied' : 'Available' }}
                                         </td>
                                         <td class="border px-4 py-2">
-                                            <!-- Par exemple, tu peux ajouter des boutons pour "Editer" ou "Supprimer" -->
-                                            <button class="btn btn-secondary">{{ __('Edit') }}</button>
-                                            <button class="btn btn-danger">{{ __('Delete') }}</button>
+                                            <button class="btn btn-primary">{{ __('See this box') }}</button>
                                         </td>
                                     </tr>
                                 @endforeach
