@@ -9,7 +9,9 @@ class BoxController extends Controller
 {
     public function index()
     {
-        return view('boxes.index');
+        $boxes = Box::where('user_id', auth()->id())->get();
+
+        return view('boxes.index', compact('boxes'));
     }
 
     public function store(Request $request)

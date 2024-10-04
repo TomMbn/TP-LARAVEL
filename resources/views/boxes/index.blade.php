@@ -15,10 +15,10 @@
                         {{ __('Add Box') }}
                     </button>
                     @if (session('success'))
-    <div class="alert alert-success mt-3">
-        {{ session('success') }}
-    </div>
-@endif
+                        <div class="alert alert-success mt-3">
+                            {{ session('success') }}
+                        </div>
+                    @endif
 
                 </div>
             </div>
@@ -61,5 +61,7 @@
             </div>
         </div>
     </div>
-
 </x-app-layout>
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+

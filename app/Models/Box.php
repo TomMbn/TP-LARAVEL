@@ -14,15 +14,14 @@ class Box extends Model
         'user_id',
         'address',
         'city',
+        'tenant_id',
     ];
 
-    // Propriétaire de la box
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    // Locataire actuel de la box
     public function tenant()
     {
         return $this->belongsTo(Tenant::class);

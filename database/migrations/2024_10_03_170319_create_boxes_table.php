@@ -10,7 +10,8 @@ class CreateBoxesTable extends Migration
     {
         Schema::create('boxes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade'); // Propriétaire de la box
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->unsignedBigInteger('tenant_id')->nullable();
             $table->string('address');
             $table->string('city');
             $table->timestamps();
