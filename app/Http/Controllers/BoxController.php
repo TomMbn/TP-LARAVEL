@@ -29,4 +29,34 @@ class BoxController extends Controller
 
         return redirect()->route('boxes.index')->with('success', 'Box created successfully!');
     }
+    public function show(Box $box)
+    {
+        return view('boxes.show', compact('box'));
+    }
+
+    public function edit(Box $box)
+    {
+        return view('boxes.edit', compact('box'));
+    }
+
+    public function update(Request $request, Box $box)
+    {
+        $request->validate([
+            'name' => 'required',
+            'location' => 'required',
+        ]);
+
+        $box->update($request->all());
+
+        return redirect()->route('boxes.show', $box)->with('success', 'Box updated successfully');
+    }
+
+    public function destroy(Box $box)
+    {
+        $box->delete();
+
+        return redirect()->route('boxes.index')->with('success', 'Box deleted successfully');
+    }
+
+
 }

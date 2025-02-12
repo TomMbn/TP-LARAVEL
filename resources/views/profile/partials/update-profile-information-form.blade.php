@@ -19,7 +19,7 @@
 
         <div>
             <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
+            <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" spellcheck="false" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
 
@@ -49,7 +49,7 @@
         
         <div>
             <x-input-label for="address" :value="__('Adress')" />
-            <x-text-input id="address" name="address" type="text" class="mt-1 block w-full" :value="old('address', $user->address)" required autofocus autocomplete="address" />
+            <x-text-input id="address" name="address" type="text" class="mt-1 block w-full" :value="old('address', $user->address)" required autofocus autocomplete="address" spellcheck="false" />
             <x-input-error class="mt-2" :messages="$errors->get('address')" />
         </div>
 

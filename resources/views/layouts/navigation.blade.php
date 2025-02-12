@@ -15,12 +15,13 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" style="text-decoration: none;">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                </div>
-                
-                <!-- Nouveau lien vers Boxes -->
-                <x-nav-link :href="route('boxes.index')" :active="request()->routeIs('boxes.*')" style="text-decoration: none;">
-                    {{ __('Boxes') }}
-                </x-nav-link>
+                    <x-nav-link :href="route('boxes.index')" :active="request()->routeIs('boxes.*')" style="text-decoration: none;">
+                        {{ __('Boxes') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('tenants.index')" :active="request()->routeIs('tenants.*')" style="text-decoration: none;">
+                        {{ __('Tenants') }}
+                    </x-nav-link>
+                </div>    
             </div>
 
             <!-- Settings Dropdown -->
@@ -75,12 +76,15 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')"  style="text-decoration: none;">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            <!-- Nouveau lien vers Boxes -->
+            <x-responsive-nav-link :href="route('boxes.index')" :active="request()->routeIs('boxes.*')"  style="text-decoration: none;">
+                {{ __('Boxes') }}
+            </x-responsive-nav-link>
+            <!-- Nouveau lien vers Tenants -->
+            <x-responsive-nav-link :href="route('tenants.index')" :active="request()->routeIs('tenants.*')"  style="text-decoration: none;">
+                {{ __('Tenants') }}
+            </x-responsive-nav-link>
         </div>
-
-         <!-- Nouveau lien vers Boxes -->
-         <x-nav-link :href="route('boxes.index')" :active="request()->routeIs('boxes.*')"  style="text-decoration: none;">
-            {{ __('Boxes') }}
-        </x-nav-link>
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">

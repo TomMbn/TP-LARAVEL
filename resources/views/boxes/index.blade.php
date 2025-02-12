@@ -8,14 +8,12 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-white overflow-hidden shadow sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <!-- Bouton pour ajouter une nouvelle box -->
                     <button class="btn btn-primary" data-toggle="modal" data-target="#addBoxModal">
                         {{ __('Add Box') }}
                     </button>
 
-                    <!-- Liste des boxes de l'utilisateur connecté -->
                     <h3 class="mt-6 mb-4">{{ __('Your Boxes') }}</h3>
 
                     @if ($boxes->isEmpty())
@@ -23,25 +21,23 @@
                     @else
                         <table class="table-auto w-full">
                             <thead>
-                                <tr>
+                                <tr class="bg-dark text-white">
                                     <th class="border px-4 py-2">{{ __('Address') }}</th>
                                     <th class="border px-4 py-2">{{ __('City') }}</th>
                                     <th class="border px-4 py-2">{{ __('Tenant') }}</th>
-                                    <th class="border px-4 py-2">{{ __('Actions') }}</th>
+                                    <th class="border px-4 py-2">{{ __('Action') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($boxes as $box)
-                                    <tr>
+                                    <tr class="{{ $box->tenant_id ? 'bg-danger text-white' : 'bg-success text-white' }}">
                                         <td class="border px-4 py-2">{{ $box->address }}</td>
                                         <td class="border px-4 py-2">{{ $box->city }}</td>
                                         <td class="border px-4 py-2">
                                             {{ $box->tenant_id ? 'Occupied' : 'Available' }}
                                         </td>
                                         <td class="border px-4 py-2">
-                                            <!-- Par exemple, tu peux ajouter des boutons pour "Editer" ou "Supprimer" -->
-                                            <button class="btn btn-secondary">{{ __('Edit') }}</button>
-                                            <button class="btn btn-danger">{{ __('Delete') }}</button>
+                                            <a href="{{ route('boxes.show', $box->id) }}" class="btn btn-primary">View Box</a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -53,7 +49,6 @@
         </div>
     </div>
 
-    <!-- Modal d'ajout de box -->
     <div class="modal fade" id="addBoxModal" tabindex="-1" role="dialog" aria-labelledby="addBoxModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -64,22 +59,18 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <!-- Formulaire d'ajout de box -->
                     <form method="POST" action="{{ route('boxes.store') }}">
                         @csrf
-                        <!-- Adresse de la box -->
                         <div class="form-group">
                             <label for="address">{{ __('Address') }}</label>
                             <input type="text" class="form-control" id="address" name="address" required>
                         </div>
 
-                        <!-- Ville de la box -->
                         <div class="form-group">
                             <label for="city">{{ __('City') }}</label>
                             <input type="text" class="form-control" id="city" name="city" required>
                         </div>
 
-                        <!-- Bouton de soumission -->
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('Close') }}</button>
                             <button type="submit" class="btn btn-primary">{{ __('Create Box') }}</button>
