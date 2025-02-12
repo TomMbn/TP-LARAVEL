@@ -32,8 +32,13 @@
                             </div>
 
                             <div class="form-group mb-4">
-                                <label for="tenant">{{ __("Tenant") }}</label>
-                                <input type="text" name="tenant" id="tenant" class="form-control" value="{{ $box->tenant_id ? 'Occupied' : 'Available' }}" required disabled>
+                                <label for="tenant_id">{{ __("Tenant") }}</label>
+                                <select name="tenant_id" id="tenant_id" class="form-control">
+                                    <option value="">{{ __("Select Tenant") }}</option>
+                                    @foreach ($tenants as $tenant)
+                                        <option value="{{ $tenant->id }}" {{ $box->tenant_id == $tenant->id ? 'selected' : '' }}>{{ $tenant->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
 
                             <div class="d-flex gap-3 mt-5">

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use App\Models\Box;
+use App\Models\Tenant;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Seeder;
@@ -23,5 +24,6 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('Azerty01'),
         ]);
         Box::factory(10)->create();
+        Tenant::factory(10)->create();
     }
 }
