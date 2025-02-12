@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Box;
+use App\Models\Tenant;
 
 class BoxController extends Controller
 {
@@ -31,7 +32,8 @@ class BoxController extends Controller
     }
     public function show(Box $box)
     {
-        return view('boxes.show', compact('box'));
+        $tenants = Tenant::all();
+        return view('boxes.show', compact('box', 'tenants'));
     }
 
     public function edit(Box $box)
@@ -42,11 +44,12 @@ class BoxController extends Controller
     public function update(Request $request, Box $box)
     {
         $request->validate([
-            'name' => 'required',
-            'location' => 'required',
+            'address' => 'required|string|max:255',
+            'city' => 'required|string|max:255',
+            'tenant_id' => 'nullable|exists:tenants,id',
         ]);
 
-        $box->update($request->all());
+        $box->update($request->only(['address', 'city', 'tenant_id']));
 
         return redirect()->route('boxes.show', $box)->with('success', 'Box updated successfully');
     }

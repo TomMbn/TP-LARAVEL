@@ -22,7 +22,8 @@ class User extends Authenticatable
         'password',
         'address',
         'city',
-        'bank_account',
+        'phone_number',
+        'bank_account'
     ];
 
     /**
@@ -36,15 +37,11 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get the attributes that should be cast.
+     * Get all the boxes associated with the user.
      *
-     * @return array<string, string>
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    protected function casts(): array
-    {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+    public function has() {
+        return $this->hasMany(Box::class);
     }
 }

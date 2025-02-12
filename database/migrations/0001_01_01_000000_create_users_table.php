@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('password'); // Mot de passe hashé
             $table->string('address')->nullable(); // Adresse de l'utilisateur
             $table->string('city')->nullable(); // Ville
+            $table->string('phone_number')->nullable(); // Numéro de téléphone
             $table->string('bank_account')->nullable(); // Compte bancaire
             $table->timestamps(); // created_at, updated_at
         });
