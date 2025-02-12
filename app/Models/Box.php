@@ -19,12 +19,7 @@ class Box extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
-    }
-
-    public function tenant()
-    {
-        return $this->belongsTo(Tenant::class);
+        return $this->belongsTo(User::class, "user_id");
     }
 }
 

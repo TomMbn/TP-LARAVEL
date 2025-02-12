@@ -42,11 +42,11 @@ class BoxController extends Controller
     public function update(Request $request, Box $box)
     {
         $request->validate([
-            'name' => 'required',
-            'location' => 'required',
+            'address' => 'required|string|max:255',
+            'city' => 'required|string|max:255',
         ]);
 
-        $box->update($request->all());
+        $box->update($request->only(['address', 'city']));
 
         return redirect()->route('boxes.show', $box)->with('success', 'Box updated successfully');
     }
