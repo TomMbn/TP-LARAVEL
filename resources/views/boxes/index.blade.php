@@ -21,7 +21,7 @@
                     @else
                         <table class="table-auto w-full">
                             <thead>
-                                <tr>
+                                <tr class="bg-dark text-white">
                                     <th class="border px-4 py-2">{{ __('Address') }}</th>
                                     <th class="border px-4 py-2">{{ __('City') }}</th>
                                     <th class="border px-4 py-2">{{ __('Tenant') }}</th>
@@ -30,7 +30,7 @@
                             </thead>
                             <tbody>
                                 @foreach ($boxes as $box)
-                                    <tr>
+                                    <tr class="{{ $box->tenant_id ? 'bg-danger text-white' : 'bg-success text-white' }}">
                                         <td class="border px-4 py-2">{{ $box->address }}</td>
                                         <td class="border px-4 py-2">{{ $box->city }}</td>
                                         <td class="border px-4 py-2">
