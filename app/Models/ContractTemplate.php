@@ -5,10 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Tenant extends Model
+class ContractTemplate extends Model
 {
     use HasFactory;
-
     /**
      * The attributes that are mass assignable.
      *
@@ -17,23 +16,11 @@ class Tenant extends Model
     protected $fillable = [
         'user_id',
         'name',
-        'email',
-        'address',
-        'city',
-        'phone_number',
-        'bank_account',
+        'template'
     ];
 
     /**
-     * Get the boxes for the tenant.
-     */
-    public function boxes()
-    {
-        return $this->hasMany(Box::class);
-    }
-
-    /**
-     * Get the user that owns the tenant.
+     * Get the user that created the template.
      */
     public function user()
     {
