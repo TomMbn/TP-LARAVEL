@@ -21,6 +21,12 @@
                     <x-nav-link :href="route('tenants.index')" :active="request()->routeIs('tenants.*')" style="text-decoration: none;">
                         {{ __('Tenants') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('contract_templates.index')" :active="request()->routeIs('contract_templates.*')" style="text-decoration: none;">
+                        {{ __('Contract Templates') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('contracts.index')" :active="request()->routeIs('contracts.*')" style="text-decoration: none;">
+                        {{ __('Contracts') }}
+                    </x-nav-link>
                 </div>    
             </div>
 
@@ -83,6 +89,12 @@
             <!-- Nouveau lien vers Tenants -->
             <x-responsive-nav-link :href="route('tenants.index')" :active="request()->routeIs('tenants.*')"  style="text-decoration: none;">
                 {{ __('Tenants') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('contract_templates.index')" :active="request()->routeIs('contract_templates.*')"  style="text-decoration: none;">
+                {{ __('Contract Template') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('contracts.index')" :active="request()->routeIs('contracts.*')"  style="text-decoration: none;">
+                {{ __('Contracts') }}
             </x-responsive-nav-link>
         </div>
 

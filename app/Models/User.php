@@ -43,7 +43,16 @@ class User extends Authenticatable
     public function has() {
         return $this->hasMany(Box::class);
     }
+
     public function tenants() {
         return $this->hasMany(Tenant::class);
+    }
+
+    public function contractTemplates() {
+        return $this->hasMany(ContractTemplate::class);
+    }
+
+    public function contracts(){
+        return $this->hasMany(Contract::class);
     }
 }

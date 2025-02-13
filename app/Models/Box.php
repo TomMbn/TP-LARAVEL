@@ -21,5 +21,15 @@ class Box extends Model
     {
         return $this->belongsTo(User::class, "user_id");
     }
+
+    public function tenant()
+    {
+        return $this->belongsTo(Tenant::class);
+    }
+
+    public function contracts()
+    {
+        return $this->hasMany(Contract::class);
+    }
 }
 

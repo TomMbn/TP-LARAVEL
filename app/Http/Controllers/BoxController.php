@@ -32,7 +32,7 @@ class BoxController extends Controller
     }
     public function show(Box $box)
     {
-        $tenants = Tenant::all();
+        $tenants = Tenant::where('user_id', auth()->id())->get();
         return view('boxes.show', compact('box', 'tenants'));
     }
 
