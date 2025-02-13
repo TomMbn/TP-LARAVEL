@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('tenants', function (Blueprint $table) {
             $table->id(); // Identifiant unique de l'utilisateur
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade'); // Lien vers la table users
             $table->string('name'); // Nom de l'utilisateur
-            $table->string('email')->unique(); // Email unique
+            $table->string('email'); // Email
             $table->string('address')->nullable(); // Adresse de l'utilisateur
             $table->string('city')->nullable(); // Ville
             $table->string('phone_number')->nullable(); // Numéro de téléphone

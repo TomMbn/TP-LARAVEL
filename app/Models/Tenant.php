@@ -15,6 +15,7 @@ class Tenant extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'user_id',
         'name',
         'email',
         'address',
@@ -29,5 +30,13 @@ class Tenant extends Model
     public function boxes()
     {
         return $this->hasMany(Box::class);
+    }
+
+    /**
+     * Get the user that owns the tenant.
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

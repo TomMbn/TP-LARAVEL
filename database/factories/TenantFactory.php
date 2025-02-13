@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Tenant;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -23,8 +24,9 @@ class TenantFactory extends Factory
     public function definition()
     {
         return [
+            'user_id' => random_int(1, User::count()),
             'name' => $this->faker->name,
-            'email' => $this->faker->unique()->safeEmail,
+            'email' => $this->faker->safeEmail,
             'address' => $this->faker->address,
             'city' => $this->faker->city,
             'phone_number' => $this->faker->phoneNumber,

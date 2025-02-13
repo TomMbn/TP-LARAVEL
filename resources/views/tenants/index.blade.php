@@ -12,9 +12,11 @@
                     <a href="{{ route('tenants.create') }}" class="btn btn-primary mb-4">{{ __('Add Tenant') }}</a>
                     <table class="table">
                         <thead>
-                            <tr>
+                            <tr class="bg-secondary text-white">
                                 <th>{{ __('Name') }}</th>
                                 <th>{{ __('Email') }}</th>
+                                <th>{{ __('Address') }}</th>
+                                <th>{{ __('Phone')}}</th>
                                 <th>{{ __('Actions') }}</th>
                             </tr>
                         </thead>
@@ -23,6 +25,8 @@
                                 <tr>
                                     <td>{{ $tenant->name }}</td>
                                     <td>{{ $tenant->email }}</td>
+                                    <td>{{ $tenant->address }}</td>
+                                    <td>{{ $tenant->phone_number }}</td>
                                     <td>
                                         <a href="{{ route('tenants.edit', $tenant->id) }}" class="btn btn-success">{{ __('Edit') }}</a>
                                         <form action="{{ route('tenants.destroy', $tenant->id) }}" method="POST" style="display:inline-block;">

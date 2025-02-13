@@ -51,7 +51,7 @@ class BoxController extends Controller
 
         $box->update($request->only(['address', 'city', 'tenant_id']));
 
-        return redirect()->route('boxes.show', $box)->with('success', 'Box updated successfully');
+        return redirect()->route('boxes.index', $box)->with('success', 'Box updated successfully');
     }
 
     public function destroy(Box $box)

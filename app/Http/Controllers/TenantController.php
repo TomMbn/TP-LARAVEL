@@ -12,7 +12,7 @@ class TenantController extends Controller
      */
     public function index()
     {
-        $tenants = Tenant::all();
+        $tenants = Tenant::where('user_id', auth()->id())->get();
         return view('tenants.index', compact('tenants'));
     }
 
@@ -31,14 +31,22 @@ class TenantController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:tenants',
+            'email' => 'required|string|email|max:255',
             'address' => 'nullable|string|max:255',
             'city' => 'nullable|string|max:255',
             'phone_number' => 'nullable|string|max:20',
             'bank_account' => 'nullable|string|max:255',
         ]);
 
-        Tenant::create($request->all());
+        Tenant::create([
+            'user_id' => auth()->id(),
+            'name' => $request->name,
+            'email' => $request->email,
+            'address' => $request->address,
+            'city' => $request->city,
+            'phone_number' => $request->phone_number,
+            'bank_account' => $request->bank_account,
+        ]);
 
         return redirect()->route('tenants.index')->with('success', 'Tenant created successfully!');
     }
