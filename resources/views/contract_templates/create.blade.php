@@ -12,22 +12,27 @@
                     <h3 class="font-semibold text-lg text-gray-800 leading-tight">
                         {{ __('Available Variables') }}
                     </h3>
-                    <ul class="list-disc pl-5 mt-3">
-                        <li><strong>{{ '{tenant_name}' }}</strong> - {{ __('Name of the tenant') }}</li>
-                        <li><strong>{{ '{tenant_email}' }}</strong> - {{ __('Email of the tenant') }}</li>
-                        <li><strong>{{ '{tenant_address}' }}</strong> - {{ __('Address of the tenant') }}</li>
-                        <li><strong>{{ '{tenant_city}' }}</strong> - {{ __('City of the tenant') }}</li>
-                        <li><strong>{{ '{tenant_phone_number}' }}</strong> - {{ __('Phone number of the tenant') }}</li>
-                        <li><strong>{{ '{tenant_bank_account}' }}</strong> - {{ __('Bank account of the tenant') }}</li>
-                        <li><strong>{{ '{box_address}' }}</strong> - {{ __('Address of the box') }}</li>
-                        <li><strong>{{ '{box_city}' }}</strong> - {{ __('City of the box') }}</li>
-                        <li><strong>{{ '{user_name}' }}</strong> - {{ __('Name of the user') }}</li>
-                        <li><strong>{{ '{user_email}' }}</strong> - {{ __('Email of the user') }}</li>
-                        <li><strong>{{ '{user_address}' }}</strong> - {{ __('Address of the user') }}</li>
-                        <li><strong>{{ '{user_city}' }}</strong> - {{ __('City of the user') }}</li>
-                        <li><strong>{{ '{user_phone_number}' }}</strong> - {{ __('Phone number of the user') }}</li>
-                        <li><strong>{{ '{user_bank_account}' }}</strong> - {{ __('Bank account of the user') }}</li>
-                    </ul>
+                    <div class="grid grid-cols-2 gap-4">
+                        <ul class="list-disc pl-5 mt-3">
+                            <li><strong>{{ '{tenant_name}' }}</strong> - {{ __('Name of the tenant') }}</li>
+                            <li><strong>{{ '{tenant_email}' }}</strong> - {{ __('Email of the tenant') }}</li>
+                            <li><strong>{{ '{tenant_address}' }}</strong> - {{ __('Address of the tenant') }}</li>
+                            <li><strong>{{ '{tenant_city}' }}</strong> - {{ __('City of the tenant') }}</li>
+                            <li><strong>{{ '{tenant_phone_number}' }}</strong> - {{ __('Phone number of the tenant') }}</li>
+                            <li><strong>{{ '{tenant_bank_account}' }}</strong> - {{ __('Bank account of the tenant') }}</li>
+                            <li><strong>{{ '{box_address}' }}</strong> - {{ __('Address of the box') }}</li>
+                            
+                        </ul>
+                        <ul class="list-disc pl-5 mt-3">
+                            <li><strong>{{ '{box_city}' }}</strong> - {{ __('City of the box') }}</li>
+                            <li><strong>{{ '{user_name}' }}</strong> - {{ __('Name of the user') }}</li>
+                            <li><strong>{{ '{user_email}' }}</strong> - {{ __('Email of the user') }}</li>
+                            <li><strong>{{ '{user_address}' }}</strong> - {{ __('Address of the user') }}</li>
+                            <li><strong>{{ '{user_city}' }}</strong> - {{ __('City of the user') }}</li>
+                            <li><strong>{{ '{user_phone_number}' }}</strong> - {{ __('Phone number of the user') }}</li>
+                            <li><strong>{{ '{user_bank_account}' }}</strong> - {{ __('Bank account of the user') }}</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
