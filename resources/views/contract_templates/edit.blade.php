@@ -9,7 +9,7 @@
             <div class="bg-white overflow-hidden shadow sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <h3 class="font-semibold text-lg text-gray-800 leading-tight">
-                        {{ __('Available Variable') }}
+                        {{ __('Available Variables') }}
                     </h3>
                     <div class="grid grid-cols-2 gap-4">
                         <ul class="list-disc pl-5 mt-3">
