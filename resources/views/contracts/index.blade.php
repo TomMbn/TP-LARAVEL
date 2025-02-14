@@ -25,7 +25,7 @@
                             @foreach ($contracts as $contract)
                                 <tr>
                                     <td>{{ $contract->tenant->name }}</td>
-                                    <td>{{ $contract->box->address }}</td>
+                                    <td>{{ $contract->box->name }}</td>
                                     <td>{{ $contract->date_start }}</td>
                                     <td>{{ $contract->date_end }}</td>
                                     <td>{{ $contract->monthly_price }}</td>

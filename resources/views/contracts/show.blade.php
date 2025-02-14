@@ -16,7 +16,7 @@
 
                     <div class="mb-4">
                         <h3 class="text-lg font-medium text-gray-900">{{ __('Box') }}</h3>
-                        <p class="text-sm text-gray-600">{{ $contract->box->address }}</p>
+                        <p class="text-sm text-gray-600">{{ $contract->box->name }}</p>
                     </div>
 
                     <div class="mb-4">

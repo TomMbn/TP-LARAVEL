@@ -40,7 +40,7 @@
                                             {{ $box->isOccupied() ? 'Occupied' : 'Available' }}
                                         </td>
                                         <td class="border px-4 py-2">
-                                            <a href="{{ route('boxes.show', $box->id) }}" class="btn btn-primary">View Box</a>
+                                            <a href="{{ route('boxes.show', $box->id) }}" class="btn btn-primary">View</a>
                                         </td>
                                     </tr>
                                 @endforeach
