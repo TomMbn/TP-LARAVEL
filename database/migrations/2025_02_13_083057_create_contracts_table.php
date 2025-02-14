@@ -17,6 +17,9 @@ class CreateContractsTable extends Migration
             $table->foreignId('tenant_id')->constrained('tenants')->onDelete('cascade');
             $table->foreignId('box_id')->constrained('boxes')->onDelete('cascade');
             $table->foreignId('contract_template_id')->constrained('contract_templates')->onDelete('cascade');
+            $table->date('date_start');
+            $table->date('date_end');
+            $table->decimal('monthly_price', 8, 2);
             $table->text('content');
             $table->timestamps();
         });

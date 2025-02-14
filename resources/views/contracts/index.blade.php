@@ -15,6 +15,9 @@
                             <tr class="bg-secondary text-white">
                                 <th>{{ __('Tenant') }}</th>
                                 <th>{{ __('Box') }}</th>
+                                <th>{{ __('Start Date') }}</th>
+                                <th>{{ __('End Date') }}</th>
+                                <th>{{ __('Monthly Price') }}</th>
                                 <th>{{ __('Actions') }}</th>
                             </tr>
                         </thead>
@@ -23,6 +26,9 @@
                                 <tr>
                                     <td>{{ $contract->tenant->name }}</td>
                                     <td>{{ $contract->box->address }}</td>
+                                    <td>{{ $contract->date_start }}</td>
+                                    <td>{{ $contract->date_end }}</td>
+                                    <td>{{ $contract->monthly_price }}</td>
                                     <td>
                                         <a href="{{ route('contracts.show', $contract->id) }}" class="btn btn-info">{{ __('View') }}</a>
                                         <a href="{{ route('contracts.edit', $contract->id) }}" class="btn btn-success">{{ __('Edit') }}</a>
