@@ -18,6 +18,7 @@ class BoxFactory extends Factory
     {
         return [
             'user_id' => 1,
+            'name' => $this->faker->word,
             'address' => $this->faker->address,
             'city' => $this->faker->city,
         ];

@@ -18,18 +18,21 @@ class BoxController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'name' => 'required|string|max:255',
             'address' => 'required|string|max:255',
             'city' => 'required|string|max:255',
         ]);
 
         Box::create([
             'user_id' => auth()->id(),
+            'name' => $request->name,
             'address' => $request->address,
             'city' => $request->city,
         ]);
 
         return redirect()->route('boxes.index')->with('success', 'Box created successfully!');
     }
+
     public function show(Box $box)
     {
         $tenants = Tenant::where('user_id', auth()->id())->get();
@@ -44,12 +47,12 @@ class BoxController extends Controller
     public function update(Request $request, Box $box)
     {
         $request->validate([
+            'name' => 'required|string|max:255',
             'address' => 'required|string|max:255',
             'city' => 'required|string|max:255',
-            'tenant_id' => 'nullable|exists:tenants,id',
         ]);
 
-        $box->update($request->only(['address', 'city', 'tenant_id']));
+        $box->update($request->only(['name', 'address', 'city']));
 
         return redirect()->route('boxes.index', $box)->with('success', 'Box updated successfully');
     }
@@ -60,6 +63,4 @@ class BoxController extends Controller
 
         return redirect()->route('boxes.index')->with('success', 'Box deleted successfully');
     }
-
-
 }
