@@ -20,7 +20,7 @@
                     @else
                         <table class="table-auto w-full">
                             <thead>
-                                <tr class="bg-secondary text-white">
+                                <tr class="bg-primary text-white">
                                     <th class="border px-4 py-2">{{ __('Name') }}</th>
                                     <th class="border px-4 py-2">{{ __('Address') }}</th>
                                     <th class="border px-4 py-2">{{ __('City') }}</th>
