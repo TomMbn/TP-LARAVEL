@@ -20,6 +20,21 @@
                     </div>
 
                     <div class="mb-4">
+                        <h3 class="text-lg font-medium text-gray-900">{{ __('Start Date') }}</h3>
+                        <p class="text-sm text-gray-600">{{ $contract->date_start }}</p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h3 class="text-lg font-medium text-gray-900">{{ __('End Date') }}</h3>
+                        <p class="text-sm text-gray-600">{{ $contract->date_end }}</p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h3 class="text-lg font-medium text-gray-900">{{ __('Monthly Price') }}</h3>
+                        <p class="text-sm text-gray-600">{{ $contract->monthly_price }}</p>
+                    </div>
+
+                    <div class="mb-4">
                         <h3 class="text-lg font-medium text-gray-900">{{ __('Contract Content') }}</h3>
                         <p class="text-sm text-gray-600">{{ $contract->content }}</p>
                     </div>
