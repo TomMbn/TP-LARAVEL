@@ -37,7 +37,7 @@
                             <select name="box_id" id="box_id" class="form-control" required>
                                 <option value="">{{ __("Select Box") }}</option>
                                 @foreach ($boxes as $box)
-                                    <option value="{{ $box->id }}">{{ $box->address }}</option>
+                                    <option value="{{ $box->id }}">{{ $box->name }}</option>
                                 @endforeach
                             </select>
                         </div>
