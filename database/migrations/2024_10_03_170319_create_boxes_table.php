@@ -11,18 +11,16 @@ class CreateBoxesTable extends Migration
         Schema::create('boxes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('tenant_id')->nullable()->constrained('tenants')->onDelete('set null');
+            $table->string('name');
             $table->string('address');
             $table->string('city');
+            $table->decimal('price', 8, 2);
             $table->timestamps();
         });
     }
 
     public function down()
     {
-        Schema::table('boxes', function (Blueprint $table) {
-            $table->dropForeign(['tenant_id']);
-        });
         Schema::dropIfExists('boxes');
     }
 }
