@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <a href="{{ route('tenants.create') }}" class="btn btn-primary mb-4">{{ __('Add Tenant') }}</a>
+                    <a href="{{ route('tenants.create') }}" class="btn btn-success mb-4"><i class="bi bi-plus-lg"></i> {{ __('Add Tenant') }}</a>
                     <table class="table">
                         <thead>
                             <tr class="bg-secondary text-white">
@@ -28,7 +28,7 @@
                                     <td>{{ $tenant->address }}</td>
                                     <td>{{ $tenant->phone_number }}</td>
                                     <td>
-                                        <a href="{{ route('tenants.edit', $tenant->id) }}" class="btn btn-success">{{ __('Edit') }}</a>
+                                        <a href="{{ route('tenants.edit', $tenant->id) }}" class="btn btn-warning">{{ __('Edit') }}</a>
                                         <form action="{{ route('tenants.destroy', $tenant->id) }}" method="POST" style="display:inline-block;">
                                             @csrf
                                             @method('DELETE')

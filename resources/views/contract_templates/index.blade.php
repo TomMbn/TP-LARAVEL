@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <a href="{{ route('contract_templates.create') }}" class="btn btn-primary mb-4">{{ __('Add Contract Template') }}</a>
+                    <a href="{{ route('contract_templates.create') }}" class="btn btn-success mb-4"><i class="bi bi-plus-lg"></i> {{ __('Add Contract Template') }}</a>
                     <table class="table">
                         <thead>
                             <tr class="bg-secondary text-white">
@@ -22,8 +22,8 @@
                                 <tr>
                                     <td>{{ $contractTemplate->name }}</td>
                                     <td>
-                                        <a href="{{ route('contract_templates.show', $contractTemplate->id) }}" class="btn btn-info">{{ __('View') }}</a>
-                                        <a href="{{ route('contract_templates.edit', $contractTemplate->id) }}" class="btn btn-success">{{ __('Edit') }}</a>
+                                        <a href="{{ route('contract_templates.show', $contractTemplate->id) }}" class="btn btn-primary">{{ __('View') }}</a>
+                                        <a href="{{ route('contract_templates.edit', $contractTemplate->id) }}" class="btn btn-warning">{{ __('Edit') }}</a>
                                         <form action="{{ route('contract_templates.destroy', $contractTemplate->id) }}" method="POST" style="display:inline-block;">
                                             @csrf
                                             @method('DELETE')
