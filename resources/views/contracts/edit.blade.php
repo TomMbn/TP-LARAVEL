@@ -38,7 +38,7 @@
                             <select name="box_id" id="box_id" class="form-control" required>
                                 <option value="">{{ __("Select Box") }}</option>
                                 @foreach ($boxes as $box)
-                                    <option value="{{ $box->id }}" {{ $contract->box_id == $box->id ? 'selected' : '' }}>{{ $box->address }}</option>
+                                    <option value="{{ $box->id }}" {{ $contract->box_id == $box->id ? 'selected' : '' }}>{{ $box->name }}</option>
                                 @endforeach
                             </select>
                         </div>
