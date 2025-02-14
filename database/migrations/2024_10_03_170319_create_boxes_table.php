@@ -14,6 +14,7 @@ class CreateBoxesTable extends Migration
             $table->string('name');
             $table->string('address');
             $table->string('city');
+            $table->decimal('price', 8, 2);
             $table->timestamps();
         });
     }

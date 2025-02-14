@@ -24,6 +24,7 @@
                                     <th class="border px-4 py-2">{{ __('Name') }}</th>
                                     <th class="border px-4 py-2">{{ __('Address') }}</th>
                                     <th class="border px-4 py-2">{{ __('City') }}</th>
+                                    <th class="border px-4 py-2">{{ __('Price') }}</th>
                                     <th class="border px-4 py-2">{{ __('Tenant') }}</th>
                                     <th class="border px-4 py-2">{{ __('Action') }}</th>
                                 </tr>
@@ -34,6 +35,7 @@
                                         <td class="border px-4 py-2">{{ $box->name }}</td>
                                         <td class="border px-4 py-2">{{ $box->address }}</td>
                                         <td class="border px-4 py-2">{{ $box->city }}</td>
+                                        <td class="border px-4 py-2">{{ $box->price }}</td>
                                         <td class="border px-4 py-2">
                                             {{ $box->isOccupied() ? 'Occupied' : 'Available' }}
                                         </td>
@@ -75,6 +77,11 @@
                         <div class="form-group">
                             <label for="city">{{ __('City') }}</label>
                             <input type="text" class="form-control" id="city" name="city" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="price">{{ __('Price') }}</label>
+                            <input type="number" class="form-control" id="price" name="price" required>
                         </div>
 
                         <div class="modal-footer">

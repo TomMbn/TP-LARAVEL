@@ -21,6 +21,7 @@ class BoxFactory extends Factory
             'name' => $this->faker->word,
             'address' => $this->faker->address,
             'city' => $this->faker->city,
+            'price' => $this->faker->randomFloat(2, 100, 1000),
         ];
     }
 }

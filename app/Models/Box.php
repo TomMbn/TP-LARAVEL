@@ -14,7 +14,8 @@ class Box extends Model
         'name',
         'user_id',
         'address',
-        'city'
+        'city',
+        'price'
     ];
 
     public function user()

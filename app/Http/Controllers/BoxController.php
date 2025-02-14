@@ -21,6 +21,7 @@ class BoxController extends Controller
             'name' => 'required|string|max:255',
             'address' => 'required|string|max:255',
             'city' => 'required|string|max:255',
+            'price' => 'required|numeric',
         ]);
 
         Box::create([
@@ -28,6 +29,7 @@ class BoxController extends Controller
             'name' => $request->name,
             'address' => $request->address,
             'city' => $request->city,
+            'price' => $request->price,
         ]);
 
         return redirect()->route('boxes.index')->with('success', 'Box created successfully!');
@@ -50,9 +52,10 @@ class BoxController extends Controller
             'name' => 'required|string|max:255',
             'address' => 'required|string|max:255',
             'city' => 'required|string|max:255',
+            'price' => 'required|numeric',
         ]);
 
-        $box->update($request->only(['name', 'address', 'city']));
+        $box->update($request->only(['name', 'address', 'city', 'price']));
 
         return redirect()->route('boxes.index', $box)->with('success', 'Box updated successfully');
     }
