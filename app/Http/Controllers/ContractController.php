@@ -31,6 +31,9 @@ class ContractController extends Controller
             'contract_template_id' => 'required|exists:contract_templates,id',
             'tenant_id' => 'required|exists:tenants,id',
             'box_id' => 'required|exists:boxes,id',
+            'date_start' => 'required|date',
+            'date_end' => 'required|date',
+            'monthly_price' => 'required|numeric',
         ]);
 
         $contractTemplate = ContractTemplate::find($request->contract_template_id);
@@ -45,6 +48,9 @@ class ContractController extends Controller
             'tenant_id' => $request->tenant_id,
             'box_id' => $request->box_id,
             'contract_template_id' => $request->contract_template_id,
+            'date_start' => $request->date_start,
+            'date_end' => $request->date_end,
+            'monthly_price' => $request->monthly_price,
             'content' => $content,
         ]);
 
@@ -70,6 +76,9 @@ class ContractController extends Controller
             'contract_template_id' => 'required|exists:contract_templates,id',
             'tenant_id' => 'required|exists:tenants,id',
             'box_id' => 'required|exists:boxes,id',
+            'date_start' => 'required|date',
+            'date_end' => 'required|date',
+            'monthly_price' => 'required|numeric',
         ]);
 
         $contractTemplate = ContractTemplate::find($request->contract_template_id);
@@ -83,6 +92,9 @@ class ContractController extends Controller
             'tenant_id' => $request->tenant_id,
             'box_id' => $request->box_id,
             'contract_template_id' => $request->contract_template_id,
+            'date_start' => $request->date_start,
+            'date_end' => $request->date_end,
+            'monthly_price' => $request->monthly_price,
             'content' => $content,
         ]);
 

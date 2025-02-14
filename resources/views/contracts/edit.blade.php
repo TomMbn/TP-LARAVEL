@@ -43,6 +43,21 @@
                             </select>
                         </div>
 
+                        <div class="form-group mb-4">
+                            <label for="date_start">{{ __("Start Date") }}</label>
+                            <input type="date" name="date_start" id="date_start" class="form-control" value="{{ old('date_start', $contract->date_start) }}" required>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label for="date_end">{{ __("End Date") }}</label>
+                            <input type="date" name="date_end" id="date_end" class="form-control" value="{{ old('date_end', $contract->date_end) }}" required>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label for="monthly_price">{{ __("Monthly Price") }}</label>
+                            <input type="number" name="monthly_price" id="monthly_price" class="form-control" value="{{ old('monthly_price', $contract->monthly_price) }}" required>
+                        </div>
+
                         <div class="d-flex gap-3 mt-5">
                             <button type="submit" class="btn btn-success">{{ __("Update Contract") }}</button>
                             <a href="{{ route('contracts.index') }}" class="btn btn-secondary">{{ __("Cancel") }}</a>
