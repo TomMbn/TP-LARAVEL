@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <h3 class="mb-4">{{ __('Unpaid Bills') }}</h3>
+                    <h3 class="mb-4 fs-6 fw-bold">{{ __('Unpaid Bills') }}</h3>
                     @if ($bills->isEmpty())
                         <p>{{ __('No unpaid bills.') }}</p>
                     @else
