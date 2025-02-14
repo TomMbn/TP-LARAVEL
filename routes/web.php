@@ -6,6 +6,7 @@ use App\Http\Controllers\TenantController;
 use App\Http\Controllers\ContractTemplateController;
 use App\Http\Controllers\ContractController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BillController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -52,6 +53,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/contracts/{contract}/edit', [ContractController::class, 'edit'])->name('contracts.edit');
     Route::put('/contracts/{contract}', [ContractController::class, 'update'])->name('contracts.update');
     Route::delete('/contracts/{contract}', [ContractController::class, 'destroy'])->name('contracts.destroy');
+
+    // Routes for bills
+    Route::get('/bills', [BillController::class, 'index'])->name('bills.index');
+    Route::patch('/bills/{bill}/mark-as-paid', [BillController::class, 'markAsPaid'])->name('bills.markAsPaid');
 });
 
 require __DIR__.'/auth.php';
