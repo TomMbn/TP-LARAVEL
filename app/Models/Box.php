@@ -11,10 +11,11 @@ class Box extends Model
     use HasFactory;
 
     protected $fillable = [
+        'name',
         'user_id',
         'address',
         'city',
-        'tenant_id',
+        'price'
     ];
 
     public function user()
@@ -30,6 +31,11 @@ class Box extends Model
     public function contracts()
     {
         return $this->hasMany(Contract::class);
+    }
+
+    public function isOccupied()
+    {
+        return $this->contracts()->where('date_end', '>=', now())->exists();
     }
 }
 

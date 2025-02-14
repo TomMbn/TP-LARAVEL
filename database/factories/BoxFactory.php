@@ -18,8 +18,10 @@ class BoxFactory extends Factory
     {
         return [
             'user_id' => 1,
+            'name' => $this->faker->word,
             'address' => $this->faker->address,
             'city' => $this->faker->city,
+            'price' => $this->faker->randomFloat(2, 100, 1000),
         ];
     }
 }

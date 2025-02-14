@@ -21,19 +21,23 @@
                         <table class="table-auto w-full">
                             <thead>
                                 <tr class="bg-secondary text-white">
+                                    <th class="border px-4 py-2">{{ __('Name') }}</th>
                                     <th class="border px-4 py-2">{{ __('Address') }}</th>
                                     <th class="border px-4 py-2">{{ __('City') }}</th>
+                                    <th class="border px-4 py-2">{{ __('Price') }}</th>
                                     <th class="border px-4 py-2">{{ __('Tenant') }}</th>
                                     <th class="border px-4 py-2">{{ __('Action') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($boxes as $box)
-                                    <tr class="{{ $box->tenant_id ? 'bg-gray-200' : 'bg-light' }}">
+                                    <tr class="{{ $box->isOccupied() ? 'bg-gray-200' : 'bg-light' }}">
+                                        <td class="border px-4 py-2">{{ $box->name }}</td>
                                         <td class="border px-4 py-2">{{ $box->address }}</td>
                                         <td class="border px-4 py-2">{{ $box->city }}</td>
+                                        <td class="border px-4 py-2">{{ $box->price }}</td>
                                         <td class="border px-4 py-2">
-                                            {{ $box->tenant_id ? 'Occupied' : 'Available' }}
+                                            {{ $box->isOccupied() ? 'Occupied' : 'Available' }}
                                         </td>
                                         <td class="border px-4 py-2">
                                             <a href="{{ route('boxes.show', $box->id) }}" class="btn btn-primary">View Box</a>
@@ -61,6 +65,11 @@
                     <form method="POST" action="{{ route('boxes.store') }}">
                         @csrf
                         <div class="form-group">
+                            <label for="name">{{ __('Name') }}</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
                             <label for="address">{{ __('Address') }}</label>
                             <input type="text" class="form-control" id="address" name="address" required>
                         </div>
@@ -68,6 +77,11 @@
                         <div class="form-group">
                             <label for="city">{{ __('City') }}</label>
                             <input type="text" class="form-control" id="city" name="city" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="price">{{ __('Price') }}</label>
+                            <input type="number" class="form-control" id="price" name="price" required>
                         </div>
 
                         <div class="modal-footer">
