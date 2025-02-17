@@ -82,7 +82,7 @@ class Contract extends Model
 
         $months = round($startDate->diffInMonths($endDate));
         
-        if ($months < 12) {
+        if (($months < 12) & ($startDate->day > 15)){
             $months += 1;
         }
 
