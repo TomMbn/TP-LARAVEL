@@ -21,7 +21,9 @@ class ContractController extends Controller
     {
         $contractTemplates = ContractTemplate::where('user_id', auth()->id())->get();
         $tenants = Tenant::where('user_id', auth()->id())->get();
-        $boxes = Box::where('user_id', auth()->id())->get();
+        $boxes = Box::where('user_id', auth()->id())->get()->filter(function ($box) {
+            return !$box->isOccupied();
+        });
         return view('contracts.create', compact('contractTemplates', 'tenants', 'boxes'));
     }
 

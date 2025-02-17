@@ -35,12 +35,13 @@
 
                         <div class="form-group mb-4">
                             <label for="box_id">{{ __("Box") }}</label>
-                            <select name="box_id" id="box_id" class="form-control" required>
+                            <select name="box_id" id="box_id" class="form-control" required disabled>
                                 <option value="">{{ __("Select Box") }}</option>
                                 @foreach ($boxes as $box)
                                     <option value="{{ $box->id }}" {{ $contract->box_id == $box->id ? 'selected' : '' }}>{{ $box->name }}</option>
                                 @endforeach
                             </select>
+                            <input type="hidden" name="box_id" value="{{ $contract->box_id }}">
                         </div>
 
                         <div class="form-group mb-4">
