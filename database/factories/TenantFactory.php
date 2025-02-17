@@ -24,7 +24,7 @@ class TenantFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => random_int(1, User::count()),
+            'user_id' => random_int(1, 2),
             'name' => $this->faker->name,
             'email' => $this->faker->safeEmail,
             'address' => $this->faker->address,

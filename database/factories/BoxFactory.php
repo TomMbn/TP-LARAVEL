@@ -17,7 +17,7 @@ class BoxFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => 1,
+            'user_id' => random_int(1, 2),
             'name' => $this->faker->word,
             'address' => $this->faker->address,
             'city' => $this->faker->city,
