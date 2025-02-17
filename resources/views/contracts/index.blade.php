@@ -37,6 +37,7 @@
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger">{{ __('Delete') }}</button>
                                         </form>
+                                        <a href="{{ route('contracts.exportPdf', $contract->id) }}" class="btn btn-secondary">{{ __('Export to PDF') }}</a>
                                     </td>
                                 </tr>
                             @endforeach

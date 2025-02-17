@@ -8,6 +8,8 @@ use App\Models\ContractTemplate;
 use App\Models\Tenant;
 use App\Models\Box;
 use App\Models\User;
+use Barryvdh\DomPDF\Facade\Pdf; // Utilisez la classe complète
+use Illuminate\Support\Facades\Auth; // Assurez-vous que cette ligne est présente
 
 class ContractController extends Controller
 {
@@ -131,5 +133,11 @@ class ContractController extends Controller
         }
 
         return $template;
+    }
+
+    public function exportPdf(Contract $contract)
+    {
+        $pdf = Pdf::loadView('contracts.pdf', compact('contract'));
+        return $pdf->download('contract-' . $contract->id . '.pdf');
     }
 }
