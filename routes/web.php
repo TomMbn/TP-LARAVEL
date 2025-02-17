@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BillController;
 use App\Http\Controllers\TaxController;
 
+use Illuminate\Support\Facades\Auth;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -54,6 +56,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/contracts/{contract}/edit', [ContractController::class, 'edit'])->name('contracts.edit');
     Route::put('/contracts/{contract}', [ContractController::class, 'update'])->name('contracts.update');
     Route::delete('/contracts/{contract}', [ContractController::class, 'destroy'])->name('contracts.destroy');
+    Route::get('/contracts/{contract}/export-pdf', [ContractController::class, 'exportPdf'])->name('contracts.exportPdf');
 
     // Routes for bills
     Route::get('/bills', [BillController::class, 'index'])->name('bills.index');
