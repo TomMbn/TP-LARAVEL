@@ -1,0 +1,28 @@
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Tax Information') }}
+        </h2>
+    </x-slot>
+
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow sm:rounded-lg">
+                <div class="p-6 bg-white border-b border-gray-200">
+                    <form action="{{ route('tax.calculate') }}" method="POST">
+                        @csrf
+                        <div class="form-group mb-4">
+                            <label for="tax_regime">{{ __("Select Tax Regime") }}</label>
+                            <select name="tax_regime" id="tax_regime" class="form-control" required>
+                                <option value="">{{ __("Select Tax Regime") }}</option>
+                                <option value="micro-foncier">{{ __("Micro-Foncier") }}</option>
+                                <option value="réel">{{ __("Réel") }}</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">{{ __("Calculate") }}</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</x-app-layout>
