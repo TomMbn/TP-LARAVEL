@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class TaxController extends Controller
 {
@@ -20,14 +21,16 @@ class TaxController extends Controller
 
         $user = Auth::user();
         $taxRegime = $request->tax_regime;
-        $contracts = $user->contracts;
+        $currentYear = Carbon::now()->year;
         $totalIncome = 0;
         $taxableIncome = 0;
         $declarationCase = '';
         $message = '';
 
-        foreach ($contracts as $contract) {
-            $totalIncome += $contract->calculateAnnualIncome();
+        $bills = $user->bills()->whereYear('payment_date', $currentYear)->get();
+
+        foreach ($bills as $bill) {
+            $totalIncome += $bill->amount;
         }
 
         if ($taxRegime == 'micro-foncier' && $totalIncome > 15000) {
