@@ -56,14 +56,14 @@ class Contract extends Model
 
         if ($currentDate->day == $startDate->day || $isLastDayOfMonth) {
             $existingBill = Bill::where('contract_id', $this->id)
-                                ->where('period_number', $monthsSinceStart + 1)
+                                ->where('period_number', round($monthsSinceStart + 1))
                                 ->first();
 
             if (!$existingBill) {
                 Bill::create([
                     'contract_id' => $this->id,
                     'amount' => $this->monthly_price,
-                    'period_number' => $monthsSinceStart + 1,
+                    'period_number' => round($monthsSinceStart + 1),
                 ]);
             }
         }
