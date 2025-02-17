@@ -40,8 +40,13 @@ class ContractController extends Controller
         $tenant = Tenant::find($request->tenant_id);
         $box = Box::find($request->box_id);
         $user = auth()->user();
+        $contract = new Contract([
+            'date_end' => $request->date_end,
+            'date_start' => $request->date_start,
+            'monthly_price' => $request->monthly_price,
+        ]);
 
-        $content = $this->replaceVariables($contractTemplate->template, $tenant, $box, $user);
+        $content = $this->replaceVariables($contractTemplate->template, $tenant, $box, $user, $contract);
 
         Contract::create([
             'user_id' => auth()->id(),
@@ -86,7 +91,7 @@ class ContractController extends Controller
         $box = Box::find($request->box_id);
         $user = auth()->user();
 
-        $content = $this->replaceVariables($contractTemplate->template, $tenant, $box, $user);
+        $content = $this->replaceVariables($contractTemplate->template, $tenant, $box, $user, $contract);
 
         $contract->update([
             'tenant_id' => $request->tenant_id,
@@ -108,12 +113,13 @@ class ContractController extends Controller
         return redirect()->route('contracts.index')->with('success', 'Contract deleted successfully!');
     }
 
-    private function replaceVariables($template, $tenant, $box, $user)
+    private function replaceVariables($template, $tenant, $box, $user, $contract)
     {
         $variables = [
             'tenant' => $tenant->toArray(),
             'box' => $box->toArray(),
             'user' => $user->toArray(),
+            'contract' => $contract->toArray()
         ];
 
         foreach ($variables as $model => $attributes) {

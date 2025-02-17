@@ -26,7 +26,7 @@
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">{{ __("Delete") }}</button>
                         </form>
-                        <a href="{{ route('contract_templates.index') }}" class="btn btn-secondary">{{ __("Back to List") }}</a>
+                        <a href="{{ route('contract_templates.index') }}" class="btn btn-primary">{{ __("Back to List") }}</a>
                     </div>
                 </div>
             </div>

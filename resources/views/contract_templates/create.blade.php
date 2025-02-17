@@ -21,10 +21,10 @@
                             <li><strong>{{ '{tenant_phone_number}' }}</strong> - {{ __('Phone number of the tenant') }}</li>
                             <li><strong>{{ '{tenant_bank_account}' }}</strong> - {{ __('Bank account of the tenant') }}</li>
                             <li><strong>{{ '{box_address}' }}</strong> - {{ __('Address of the box') }}</li>
-                            
+                            <li><strong>{{ '{box_city}' }}</strong> - {{ __('City of the box') }}</li>
                         </ul>
                         <ul class="list-disc pl-5 mt-3">
-                            <li><strong>{{ '{box_city}' }}</strong> - {{ __('City of the box') }}</li>
+                            <li><strong>{{ '{contract_price}' }}</strong> - {{ __('Price of the location') }}</li>
                             <li><strong>{{ '{user_name}' }}</strong> - {{ __('Name of the user') }}</li>
                             <li><strong>{{ '{user_email}' }}</strong> - {{ __('Email of the user') }}</li>
                             <li><strong>{{ '{user_address}' }}</strong> - {{ __('Address of the user') }}</li>
