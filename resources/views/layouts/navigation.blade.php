@@ -30,6 +30,9 @@
                     <x-nav-link :href="route('bills.index')" :active="request()->routeIs('bills.*')" style="text-decoration: none;">
                         {{ __('Bills') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('tax.index')" :active="request()->routeIs('tax.*')" style="text-decoration: none;">
+                        {{ __('Tax') }}
+                    </x-nav-link>
                 </div>    
             </div>
 
@@ -101,6 +104,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('bills.index')" :active="request()->routeIs('bills.*')"  style="text-decoration: none;">
                 {{ __('Bills') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('tax.index')" :active="request()->routeIs('tax.*')"  style="text-decoration: none;">
+                {{ __('Tax') }}
             </x-responsive-nav-link>
         </div>
 
