@@ -66,4 +66,26 @@ class Contract extends Model
             }
         }
     }
+
+    public function calculateAnnualIncome()
+    {
+        $startDate = Carbon::parse($this->date_start);
+        $endDate = Carbon::parse($this->date_end);
+        $currentYear = Carbon::now()->year;
+
+        if ($startDate->year < $currentYear) {
+            $startDate = Carbon::createFromDate($currentYear, 1, 1);
+        }
+        if ($endDate->year > $currentYear) {
+            $endDate = Carbon::createFromDate($currentYear, 12, 31);
+        }
+
+        $months = round($startDate->diffInMonths($endDate));
+        
+        if ($months < 12) {
+            $months += 1;
+        }
+
+        return $this->monthly_price * $months;
+    }
 }

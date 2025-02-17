@@ -7,6 +7,7 @@ use App\Http\Controllers\ContractTemplateController;
 use App\Http\Controllers\ContractController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BillController;
+use App\Http\Controllers\TaxController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -57,6 +58,10 @@ Route::middleware('auth')->group(function () {
     // Routes for bills
     Route::get('/bills', [BillController::class, 'index'])->name('bills.index');
     Route::patch('/bills/{bill}/mark-as-paid', [BillController::class, 'markAsPaid'])->name('bills.markAsPaid');
+
+    // Routes for tax
+    Route::get('/tax', [TaxController::class, 'index'])->name('tax.index');
+    Route::post('/tax/calculate', [TaxController::class, 'calculate'])->name('tax.calculate');
 });
 
 require __DIR__.'/auth.php';
