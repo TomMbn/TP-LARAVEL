@@ -20,7 +20,10 @@
                         <form action="{{ route('boxes.update', $box->id) }}" method="POST">
                             @csrf
                             @method('PUT')
-
+                            <div class="form-group mb-4">
+                                <label for="name">{{ __("Name") }}</label>
+                                <input type="text" name="name" id="name" class="form-control" value="{{ old('name', $box->name) }}" required spellcheck="false">
+                            </div>
                             <div class="form-group mb-4">
                                 <label for="address">{{ __("Address") }}</label>
                                 <input type="text" name="address" id="address" class="form-control" value="{{ old('address', $box->address) }}" required spellcheck="false">
@@ -32,13 +35,17 @@
                             </div>
 
                             <div class="form-group mb-4">
-                                <label for="tenant_id">{{ __("Tenant") }}</label>
-                                <select name="tenant_id" id="tenant_id" class="form-control">
-                                    <option value="">{{ __("Select Tenant") }}</option>
-                                    @foreach ($tenants as $tenant)
-                                        <option value="{{ $tenant->id }}" {{ $box->tenant_id == $tenant->id ? 'selected' : '' }}>{{ $tenant->name }}</option>
-                                    @endforeach
-                                </select>
+                                <label for="price">{{ __("Price") }}</label>
+                                <input type="number" name="price" id="price" class="form-control" value="{{ old('price', $box->price) }}" required>
+                            </div>
+
+                            <div class="form-group mb-4">
+                                <label for="tenant">{{ __("Tenant") }}</label>
+                                @if ($box->currentContract())
+                                    <p>{{ $box->currentContract()->tenant->name }}</p>
+                                @else
+                                    <p>{{ __('No current tenant') }}</p>
+                                @endif
                             </div>
 
                             <div class="d-flex gap-3 mt-5">

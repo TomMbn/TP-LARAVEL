@@ -9,8 +9,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BillController;
 use App\Http\Controllers\TaxController;
 
-use Illuminate\Support\Facades\Auth;
-
 Route::get('/', function () {
     return view('welcome');
 });
