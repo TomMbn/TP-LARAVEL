@@ -52,7 +52,7 @@ class Contract extends Model
         $currentDate = Carbon::now();
         $monthsSinceStart = $startDate->diffInMonths($currentDate);
 
-        $isLastDayOfMonth = $currentDate->isSameDay($startDate->copy()->endOfMonth());
+        $isLastDayOfMonth = $currentDate->isLastOfMonth();
 
         if ($currentDate->day == $startDate->day || $isLastDayOfMonth) {
             $existingBill = Bill::where('contract_id', $this->id)
