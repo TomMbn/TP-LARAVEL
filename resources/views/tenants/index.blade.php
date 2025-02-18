@@ -28,6 +28,7 @@
                                     <td>{{ $tenant->address }}</td>
                                     <td>{{ $tenant->phone_number }}</td>
                                     <td>
+                                        <a href="{{ route('tenants.show', $tenant->id) }}" class="btn btn-primary">{{ __('View') }}</a>
                                         <a href="{{ route('tenants.edit', $tenant->id) }}" class="btn btn-warning">{{ __('Edit') }}</a>
                                         <form action="{{ route('tenants.destroy', $tenant->id) }}" method="POST" style="display:inline-block;">
                                             @csrf
