@@ -16,19 +16,19 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                     <x-nav-link :href="route('boxes.index')" :active="request()->routeIs('boxes.*')" style="text-decoration: none;">
-                        {{ __('Boxes') }}
+                        {{ __('My Boxes') }}
                     </x-nav-link>
                     <x-nav-link :href="route('tenants.index')" :active="request()->routeIs('tenants.*')" style="text-decoration: none;">
-                        {{ __('Tenants') }}
+                        {{ __('My Tenants') }}
                     </x-nav-link>
                     <x-nav-link :href="route('contract_templates.index')" :active="request()->routeIs('contract_templates.*')" style="text-decoration: none;">
-                        {{ __('Contract Templates') }}
+                        {{ __('My Contract Templates') }}
                     </x-nav-link>
                     <x-nav-link :href="route('contracts.index')" :active="request()->routeIs('contracts.*')" style="text-decoration: none;">
-                        {{ __('Contracts') }}
+                        {{ __('My Contracts') }}
                     </x-nav-link>
                     <x-nav-link :href="route('bills.index')" :active="request()->routeIs('bills.*')" style="text-decoration: none;">
-                        {{ __('Bills') }}
+                        {{ __('My Bills') }}
                     </x-nav-link>
                     <x-nav-link :href="route('tax.index')" :active="request()->routeIs('tax.*')" style="text-decoration: none;">
                         {{ __('Tax') }}
@@ -90,20 +90,20 @@
             </x-responsive-nav-link>
             <!-- Nouveau lien vers Boxes -->
             <x-responsive-nav-link :href="route('boxes.index')" :active="request()->routeIs('boxes.*')"  style="text-decoration: none;">
-                {{ __('Boxes') }}
+                {{ __('My Boxes') }}
             </x-responsive-nav-link>
             <!-- Nouveau lien vers Tenants -->
             <x-responsive-nav-link :href="route('tenants.index')" :active="request()->routeIs('tenants.*')"  style="text-decoration: none;">
-                {{ __('Tenants') }}
+                {{ __('My Tenants') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('contract_templates.index')" :active="request()->routeIs('contract_templates.*')"  style="text-decoration: none;">
-                {{ __('Contract Template') }}
+                {{ __('My Contract Templates') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('contracts.index')" :active="request()->routeIs('contracts.*')"  style="text-decoration: none;">
-                {{ __('Contracts') }}
+                {{ __('My Contracts') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('bills.index')" :active="request()->routeIs('bills.*')"  style="text-decoration: none;">
-                {{ __('Bills') }}
+                {{ __('My Bills') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('tax.index')" :active="request()->routeIs('tax.*')"  style="text-decoration: none;">
                 {{ __('Tax') }}
