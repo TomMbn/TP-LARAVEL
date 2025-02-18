@@ -19,7 +19,9 @@ class GenerateBills extends Command
 
     public function handle()
     {
-        $contracts = Contract::where('date_end', '>=', Carbon::now())->get();
+        $contracts = Contract::where('date_end', '>=', Carbon::now())
+                             ->where('date_start', '<=', Carbon::now())
+                             ->get();
 
         foreach ($contracts as $contract) {
             $contract->generateBill();
