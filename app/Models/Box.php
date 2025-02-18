@@ -35,7 +35,9 @@ class Box extends Model
 
     public function isOccupied()
     {
-        return $this->contracts()->where('date_end', '>=', now())->exists();
+        return $this->contracts()->where('date_end', '>=', now())
+                                 ->where('date_start', '<=', now())                         
+                                 ->exists();
     }
 }
 
