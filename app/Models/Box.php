@@ -39,5 +39,13 @@ class Box extends Model
                                  ->where('date_start', '<=', now())                         
                                  ->exists();
     }
+
+    public function currentContract()
+    {
+        return $this->contracts()
+                    ->where('date_start', '<=', now())
+                    ->where('date_end', '>=', now())
+                    ->first();
+    }
 }
 
